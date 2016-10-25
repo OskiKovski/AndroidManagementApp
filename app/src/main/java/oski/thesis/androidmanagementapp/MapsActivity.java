@@ -1,14 +1,17 @@
 package oski.thesis.androidmanagementapp;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+
+/**
+ * Created by Oskar Kowalski on 20.10.2016.
+ */
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -38,9 +41,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
   public void onMapReady(GoogleMap googleMap) {
     mMap = googleMap;
 
-    // Add a marker in Sydney and move the camera
-    LatLng warsaw = new LatLng(52.25, 21);
-    mMap.addMarker(new MarkerOptions().position(warsaw).title("Marker in Warsaw"));
+    // Add a marker in Warsaw and move the camera
+    LatLng warsaw = new LatLng(52.245, 21);
     mMap.moveCamera(CameraUpdateFactory.newLatLng(warsaw));
+    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(warsaw, 13.0f));
   }
 }
