@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:id="@+id/activity_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/set_hotspot"
-        android:onClick="setupHotSpot" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_hotspot"
+            android:onClick="openHotSpot"/>
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/connect_wifi"
-        android:onClick="connectWithWiFi" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/close_hotspot"
+            android:onClick="closeHotSpot"/>
 
     <Button xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/set_dest"
         android:onClick="openMapView" />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/refresh"
+            android:onClick="refreshClients"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
 </LinearLayout>
