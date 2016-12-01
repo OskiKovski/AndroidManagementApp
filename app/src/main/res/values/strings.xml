@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">AndroidManagementApp</string>
+    <string name="app_name">VibraNavigation</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="open_hotspot">Open a hotspot</string>
     <string name="close_hotspot">Close a hotspot</string>
     <string name="set_dest">Set destination</string>
     <string name="refresh">Refresh connected clients</string>
+    <string name="cancel_dest">Cancel destination</string>
     <string name="back">Back</string>
 </resources>

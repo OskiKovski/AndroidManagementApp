@@ -1,4 +1,4 @@
-package oski.thesis.androidmanagementapp.arduinoutils;
+package oski.thesis.vibranavigation.arduinoutils;
 
 import android.util.Log;
 
@@ -38,11 +38,35 @@ public abstract class ArduinoWifiAPConnectionManager {
     }
   }
 
+  public static void sendCancellationMessage() {
+    Socket socket = new Socket();
+    InetSocketAddress socketAddress = new InetSocketAddress(arduinoDeviceIP, LISTEN_PORT_NUMBER);
+    String cancellationString = "CANCEL";
+    Log.d("TCP", "C: Connecting...");
+
+    try {
+      Log.d("TCP", "C: Sending: '" + cancellationString + "'" + " to " + arduinoDeviceIP + ":" + LISTEN_PORT_NUMBER);
+      socket.connect(socketAddress);
+      Log.e("Connect", "");
+      DataOutputStream DataOut = new DataOutputStream(socket.getOutputStream());
+      DataOut.flush();
+      DataOut.writeBytes(cancellationString);
+      DataOut.flush();
+      socket.close();
+    } catch (Exception e) {
+      Log.e("Arduino connection", "", e);
+    }
+  }
+
   public static void setArduinoDeviceIP(InetAddress arduinoDeviceIP) {
     ArduinoWifiAPConnectionManager.arduinoDeviceIP = arduinoDeviceIP;
   }
 
   public static void setDestinationPoint(LatLng destinationPoint) {
     ArduinoWifiAPConnectionManager.destinationPoint = destinationPoint;
+  }
+
+  public static LatLng getDestinationPoint() {
+    return destinationPoint;
   }
 }

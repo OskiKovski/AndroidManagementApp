@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package oski.thesis.androidmanagementapp.wifihotspotutils;
+package oski.thesis.vibranavigation.wifihotspotutils;
 
 import android.content.Context;
 import android.net.wifi.WifiConfiguration;

@@ -1,5 +1,9 @@
+package oski.thesis.vibranavigation.wifihotspotutils;
+
+import java.util.ArrayList;
+
 /*
- * Copyright 2013 WhiteByte (Nick Russler, Ahmet Yueksektepe).
+ * Copyright 2014 Carlos Ferreyra.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +18,16 @@
  * limitations under the License.
  */
 
-package oski.thesis.androidmanagementapp.wifihotspotutils;
 
-public enum WIFI_AP_STATE {
-  WIFI_AP_STATE_DISABLING, WIFI_AP_STATE_DISABLED, WIFI_AP_STATE_ENABLING, WIFI_AP_STATE_ENABLED, WIFI_AP_STATE_FAILED
+public interface FinishScanListener {
+
+
+  /**
+   * Interface called when the scan method finishes. Network operations should not execute on UI thread
+   *
+   * @param clients - ArrayList of {@link ClientScanResult}
+   */
+
+  public void onFinishScan(ArrayList<ClientScanResult> clients);
+
 }

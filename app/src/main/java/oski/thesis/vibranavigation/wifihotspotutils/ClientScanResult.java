@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package oski.thesis.androidmanagementapp.wifihotspotutils;
+package oski.thesis.vibranavigation.wifihotspotutils;
 
 public class ClientScanResult {
 

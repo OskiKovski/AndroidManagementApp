@@ -1,8 +1,9 @@
-package oski.thesis.androidmanagementapp;
+package oski.thesis.vibranavigation;
 
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
@@ -13,10 +14,10 @@ import android.widget.TextView;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
-import oski.thesis.androidmanagementapp.arduinoutils.ArduinoWifiAPConnectionManager;
-import oski.thesis.androidmanagementapp.wifihotspotutils.ClientScanResult;
-import oski.thesis.androidmanagementapp.wifihotspotutils.FinishScanListener;
-import oski.thesis.androidmanagementapp.wifihotspotutils.WifiApManager;
+import oski.thesis.vibranavigation.arduinoutils.ArduinoWifiAPConnectionManager;
+import oski.thesis.vibranavigation.wifihotspotutils.ClientScanResult;
+import oski.thesis.vibranavigation.wifihotspotutils.FinishScanListener;
+import oski.thesis.vibranavigation.wifihotspotutils.WifiApManager;
 
 /**
  * Created by Oskar Kowalski on 20.10.2016.
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+    StrictMode.setThreadPolicy(policy);
     setContentView(R.layout.activity_main);
 
     textView = (TextView) findViewById(R.id.textView);
@@ -45,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
   public void refreshClients(View view) {
     scan();
+  }
+
+  public void cancelDestinationPoint(View view) {
+    ArduinoWifiAPConnectionManager.setDestinationPoint(null);
+    ArduinoWifiAPConnectionManager.sendCancellationMessage();
   }
 
   public void openMapView(View view) {
