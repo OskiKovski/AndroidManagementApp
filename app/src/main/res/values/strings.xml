@@ -7,5 +7,7 @@
     <string name="set_dest">Set destination</string>
     <string name="refresh">Refresh connected clients</string>
     <string name="cancel_dest">Cancel destination</string>
+    <string name="azimuth">Azimuth</string>
+    <string name="route">Route</string>
     <string name="back">Back</string>
 </resources>
